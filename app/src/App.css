@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+/* My Styles */
+.card-image {
+  width: 430px;
+  height: 602px;
+}
+
+.card-effect {
+  position: absolute;
+  right: 50%;
+  left: 50%;
+  bottom: 15%;
+}
