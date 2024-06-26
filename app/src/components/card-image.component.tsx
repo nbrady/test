@@ -1,4 +1,5 @@
 import React from 'react';
+import defaultCard from '../assets/default-card.png';
 
 interface CardImageProps {
     cardName: string;
@@ -13,16 +14,28 @@ interface CardImageProps {
 export const CardImage:React.FC<CardImageProps> = (props: CardImageProps) => {
     return (
         <div className='position-relative'>
-            {/* TODO Add default image */}
-            <img className='card-image' src={props.cardImage} alt={props.cardName} />
+            <img className='card-image' src={props.cardImage || defaultCard} alt={props.cardName} />
 
-            <div className='card-effect'>
-                <p>{props.cardName}</p>
-                <p>{props.cardCost}</p>
-                <p>{props.cardPower}</p>
-                <p>{props.cardCombo}</p>
-                <p>{props.cardEffect}</p>
+            <div className='card-top row card-text-container'>
+                <div className='col-3'>
+                    <span>{props.cardCost}</span>
+                </div>
+
+                <div className='col-9'>
+                    <h2>{props.cardName}</h2>
+                </div>
             </div>
+
+            {props.cardEffect && (
+                <div className='card-middle card-text-container'>
+                    <p>{props.cardEffect}</p>
+                </div>
+            )}
+
+            <div className='card-bottom card-text-container'>
+                <span>Power: {props.cardPower}</span>
+            </div>
+
         </div>
     );
 }

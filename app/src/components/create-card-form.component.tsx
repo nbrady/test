@@ -27,22 +27,22 @@ export const CreateCardForm = () => {
 
                     <div>
                         <label htmlFor='card-cost'>Card Cost: </label>
-                        <input id='card-cost' type="number" min={0} value={cardCost} onChange={(event) => setCardCost(Number(event.target.value))} />
+                        <input id='card-cost' type="number" value={cardCost} onChange={(event) => setCardCost(Number(event.target.value))} />
                     </div>
 
                     <div>
                         <label htmlFor='card-power'>Card Power: </label>
-                        <input id='card-power' type="number" min={0} value={cardPower} onChange={(event) => setCardPower(Number(event.target.value))} />
+                        <input id='card-power' type="number" value={cardPower} onChange={(event) => setCardPower(Number(event.target.value))} />
                     </div>
 
                     <div>
                         <label htmlFor='card-combo'>Card Combo: </label>
-                        <input id='card-combo' type="number" min={0} value={cardCombo} onChange={(event) => setCardCombo(Number(event.target.value))} />
+                        <input id='card-combo' type="number" value={cardCombo} onChange={(event) => setCardCombo(Number(event.target.value))} />
                     </div>
 
                     <div>
                         <label htmlFor='card-effect'>Effect: </label>
-                        <input id='card-effect' type="text" min={0} value={cardEffect} onChange={(event) => setCardEffect(event.target.value)} />
+                        <input id='card-effect' type="text" value={cardEffect} onChange={(event) => setCardEffect(event.target.value)} />
                     </div>
 
                     <div>
