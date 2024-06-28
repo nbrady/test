@@ -2,10 +2,10 @@ import React from 'react';
 import defaultCard from '../assets/default-card.png';
 
 interface CardImageProps {
-    cardName: string;
-    cardCost: number;
-    cardPower: number;
-    cardCombo: number;
+    cardName?: string;
+    cardCost?: number;
+    cardPower?: number;
+    cardHealth?: number;
     cardEffect?: string;
     cardImage?: string;
 }
@@ -14,14 +14,15 @@ interface CardImageProps {
 export const CardImage:React.FC<CardImageProps> = (props: CardImageProps) => {
     return (
         <div className='position-relative'>
+            {/* TODO: Rounded corner */}
             <img className='card-image' src={props.cardImage || defaultCard} alt={props.cardName} />
 
-            <div className='card-top row card-text-container'>
-                <div className='col-3'>
-                    <span>{props.cardCost}</span>
+            <div className='card-top'>
+                <div className='card-cost-container'>
+                    <h2>{props.cardCost}</h2>
                 </div>
 
-                <div className='col-9'>
+                <div className='card-name-container'>
                     <h2>{props.cardName}</h2>
                 </div>
             </div>
@@ -33,7 +34,8 @@ export const CardImage:React.FC<CardImageProps> = (props: CardImageProps) => {
             )}
 
             <div className='card-bottom card-text-container'>
-                <span>Power: {props.cardPower}</span>
+                <div>Power: {props.cardPower}</div>
+                <div>Health: {props.cardHealth}</div>
             </div>
 
         </div>

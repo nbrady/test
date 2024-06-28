@@ -3,11 +3,11 @@ import { CardImage } from './card-image.component';
 
 export const CreateCardForm = () => {
 
-    const [cardName, setCardName] = useState<string>("");
-    const [cardCost, setCardCost] = useState<number>(0);
-    const [cardPower, setCardPower] = useState<number>(0);
-    const [cardCombo, setCardCombo] = useState<number>(0);
-    const [cardEffect, setCardEffect] = useState<string>("");
+    const [cardName, setCardName] = useState<string>();
+    const [cardCost, setCardCost] = useState<number>();
+    const [cardPower, setCardPower] = useState<number>();
+    const [cardHealth, setCardHealth] = useState<number>();
+    const [cardEffect, setCardEffect] = useState<string>();
     const [cardImage, setCardImage] = useState<string>();
 
     function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -27,17 +27,17 @@ export const CreateCardForm = () => {
 
                     <div>
                         <label htmlFor='card-cost'>Card Cost: </label>
-                        <input id='card-cost' type="number" value={cardCost} onChange={(event) => setCardCost(Number(event.target.value))} />
+                        <input id='card-cost' type="text" value={cardCost} onChange={(event) => setCardCost(Number(event.target.value))} />
                     </div>
 
                     <div>
                         <label htmlFor='card-power'>Card Power: </label>
-                        <input id='card-power' type="number" value={cardPower} onChange={(event) => setCardPower(Number(event.target.value))} />
+                        <input id='card-power' type="text" value={cardPower} onChange={(event) => setCardPower(Number(event.target.value))} />
                     </div>
 
                     <div>
-                        <label htmlFor='card-combo'>Card Combo: </label>
-                        <input id='card-combo' type="number" value={cardCombo} onChange={(event) => setCardCombo(Number(event.target.value))} />
+                        <label htmlFor='card-combo'>Card Health: </label>
+                        <input id='card-combo' type="text" value={cardHealth} onChange={(event) => setCardHealth(Number(event.target.value))} />
                     </div>
 
                     <div>
@@ -57,7 +57,7 @@ export const CreateCardForm = () => {
                         cardName={cardName}
                         cardCost={cardCost}
                         cardPower={cardPower}
-                        cardCombo={cardCombo}
+                        cardHealth={cardHealth}
                         cardEffect={cardEffect}
                         cardImage={cardImage}
                     />
