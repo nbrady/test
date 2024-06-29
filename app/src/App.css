@@ -44,45 +44,33 @@
   border-radius: 10px;
 }
 
-.card-cost-container {
+.card-circle-container {
   position: absolute;
+  text-align: center;
 
   height: 40px;
   width: 40px;
   line-height: 35px;
-  left: 0px;
 
   border: solid;
   border-radius: 50%;
 
   background-color: white;
-  opacity: 80%;
-  text-align: center;
-  float: left;
+  opacity: 70%;
 }
 
-.card-name-container {
+.card-rectangle-container {
   position: absolute;
+
   height: 40px;
   width: 350px;
-  line-height: 25px;
-  right: 0px;
+  line-height: 35px;
 
   border: solid;
   border-radius: 10px;
 
   background-color: white;
-  opacity: 80%;
-  text-align: center;
-  float:left;
-}
-
-.card-text-container {
-  border: solid;
-  border-radius: 10px;
-  background-color: white;
-  opacity: 80%;
-  text-align: center;
+  opacity: 70%;
 }
 
 .card-top {
@@ -90,7 +78,6 @@
   top: 0px;
   width: 410px;
   margin: 10px !important;
-  font-weight: bold;
 }
 
 .card-middle {
@@ -105,5 +92,4 @@
   bottom: 0px;
   width: 410px;
   margin: 10px !important;
-  font-weight: bold;
 }

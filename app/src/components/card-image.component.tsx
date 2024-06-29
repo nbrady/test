@@ -14,30 +14,33 @@ interface CardImageProps {
 export const CardImage:React.FC<CardImageProps> = (props: CardImageProps) => {
     return (
         <div className='position-relative'>
-            {/* TODO: Rounded corner */}
             <img className='card-image' src={props.cardImage || defaultCard} alt={props.cardName} />
 
             <div className='card-top'>
-                <div className='card-cost-container'>
+                <div className='card-circle-container start-0'>
                     <h2>{props.cardCost}</h2>
                 </div>
 
-                <div className='card-name-container'>
+                <div className='card-rectangle-container end-0 text-center'>
                     <h2>{props.cardName}</h2>
                 </div>
             </div>
 
             {props.cardEffect && (
-                <div className='card-middle card-text-container'>
-                    <p>{props.cardEffect}</p>
+                <div className='card-middle card-rectangle-container p-1'>
+                    <h6>{props.cardEffect}</h6>
                 </div>
             )}
 
-            <div className='card-bottom card-text-container'>
-                <div>Power: {props.cardPower}</div>
-                <div>Health: {props.cardHealth}</div>
+            <div className='card-bottom'>
+                {/* Use font awesome icons */}
+                <div className='card-circle-container bottom-0 start-0'>
+                    <h2>{props.cardPower}</h2>
+                </div>
+                <div className='card-circle-container bottom-0 end-0'>
+                    <h2>{props.cardHealth}</h2>
+                </div>
             </div>
-
         </div>
     );
 }
