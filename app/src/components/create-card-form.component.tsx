@@ -1,18 +1,14 @@
 import { useState } from 'react';
 import { CardImage } from './card-image.component';
+import { ICard } from '../types/card';
 
 export const CreateCardForm = () => {
 
-    const [cardName, setCardName] = useState<string>();
-    const [cardCost, setCardCost] = useState<number>();
-    const [cardPower, setCardPower] = useState<number>();
-    const [cardHealth, setCardHealth] = useState<number>();
-    const [cardEffect, setCardEffect] = useState<string>();
-    const [cardImage, setCardImage] = useState<string>();
+    const [card, setCard] = useState<ICard>({});
 
-    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const setImage = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files) {
-            setCardImage(URL.createObjectURL(event.target.files[0]));
+            setCard({ ...card, image: URL.createObjectURL(event.target.files[0]) });
         }
     }
 
@@ -22,45 +18,63 @@ export const CreateCardForm = () => {
                 <div className='col-8'>
                     <div>
                         <label htmlFor='card-name'>Card Name: </label>
-                        <input id='card-name' type="text" value={cardName} onChange={(event) => setCardName(event.target.value)} />
+                        <input
+                            id='card-name'
+                            type="text"
+                            value={card.name}
+                            onChange={(event) => setCard({ ...card, name: event.target.value })}
+                        />
                     </div>
 
                     <div>
                         <label htmlFor='card-cost'>Card Cost: </label>
-                        <input id='card-cost' type="text" value={cardCost} onChange={(event) => setCardCost(Number(event.target.value))} />
+                        <input
+                            id='card-cost'
+                            type="text"
+                            value={card.cost}
+                            onChange={(event) => setCard({ ...card, cost: event.target.value })}
+                        />
                     </div>
 
                     <div>
                         <label htmlFor='card-power'>Card Power: </label>
-                        <input id='card-power' type="text" value={cardPower} onChange={(event) => setCardPower(Number(event.target.value))} />
+                        <input
+                            id='card-power'
+                            type="text"
+                            value={card.power}
+                            onChange={(event) => setCard({ ...card, power: event.target.value })}
+                        />
                     </div>
 
                     <div>
-                        <label htmlFor='card-combo'>Card Health: </label>
-                        <input id='card-combo' type="text" value={cardHealth} onChange={(event) => setCardHealth(Number(event.target.value))} />
+                        <label htmlFor='card-health'>Card Health: </label>
+                        <input
+                            id='card-health'
+                            type="text"
+                            value={card.health}
+                            onChange={(event) => setCard({ ...card, health: event.target.value })}
+                        />
                     </div>
 
                     <div>
                         <label htmlFor='card-effect'>Effect: </label>
-                        <input id='card-effect' type="text" value={cardEffect} onChange={(event) => setCardEffect(event.target.value)} />
+                        <input
+                            id='card-effect'
+                            type="text"
+                            value={card.effect}
+                            onChange={(event) => setCard({ ...card, effect: event.target.value })}
+                        />
                     </div>
 
                     <div>
                         <label htmlFor='card-image'>Card Image: </label>
-                        <input id='card-image' type="file" onChange={handleChange} />
+                        <input id='card-image' type="file" onChange={setImage} />
                     </div>
                 </div>
 
                 <div className="col-4">
                     <label htmlFor='card-preview'>Card Preview: </label>
-                    <CardImage
-                        cardName={cardName}
-                        cardCost={cardCost}
-                        cardPower={cardPower}
-                        cardHealth={cardHealth}
-                        cardEffect={cardEffect}
-                        cardImage={cardImage}
-                    />
+                    <CardImage card={card} />
                 </div>
             </div>
         </div>

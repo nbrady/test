@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Android 17",
+        "cost": "3",
+        "power":"4",
+        "health": "5",
+        "effect": "On Play: Your opponent discards 1 card."
+    },
+    {
+        "name": "Android 18",
+        "cost": "3",
+        "power": "4",
+        "health": "5",
+        "effect": "On Play: Draw 1 card."
+    }
+]
