@@ -1,5 +1,4 @@
 import React from 'react';
-import defaultCard from '../assets/default-card.png';
 import { ICard } from '../types/card';
 
 interface CardImageProps {
@@ -8,9 +7,17 @@ interface CardImageProps {
 
 // 860 x 1205
 export const CardImage:React.FC<CardImageProps> = (props: CardImageProps) => {
+
+    let imageUrl = `${process.env.PUBLIC_URL}/cards/default-card.png`;
+    if (props.card.image) {
+        imageUrl = props.card.image;
+    } else if (props.card.id) {
+        imageUrl = `${process.env.PUBLIC_URL}/cards/${props.card.id}.png`;
+    } 
+
     return (
         <div className='position-relative'>
-            <img className='card-image' src={props.card.image || defaultCard} alt={props.card.name} />
+            <img className='card-image' src={imageUrl} alt={props.card.name} />
 
             <div className='card-top'>
                 <div className='card-circle-container start-0'>
