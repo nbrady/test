@@ -1,16 +1,14 @@
 import { useState } from "react";
 import { CardImage } from "./card-image.component";
 import { ICard } from "../types/card";
-import { initialize } from "../services/card-service";
 
 export const CreateCardForm = () => {
   const [card, setCard] = useState<ICard>({});
 
   const setImage = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // if (event.target.files) {
-    //   setCard({ ...card, image: URL.createObjectURL(event.target.files[0]) });
-    // }
-    initialize();
+    if (event.target.files) {
+      setCard({ ...card, image: URL.createObjectURL(event.target.files[0]) });
+    }
   };
 
   return (
