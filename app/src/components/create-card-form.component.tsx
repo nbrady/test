@@ -1,9 +1,18 @@
 import { useState } from "react";
 import { CardImage } from "./card-image.component";
 import { ICard } from "../types/card";
+import { addCard } from "../services/card-database.service";
 
 export const CreateCardForm = () => {
-  const [card, setCard] = useState<ICard>({});
+  const [card, setCard] = useState<ICard>({
+    id: '',
+    name: '',
+    cost: '',
+    power: '',
+    health: '',
+    effect: '',
+    image: '',
+  });
 
   const setImage = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
@@ -78,6 +87,16 @@ export const CreateCardForm = () => {
           <div>
             <label htmlFor="card-image">Card Image: </label>
             <input id="card-image" type="file" onChange={setImage} />
+          </div>
+
+          <div>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => addCard(card)}
+            >
+              Save
+            </button>
           </div>
         </div>
 
