@@ -79,5 +79,14 @@
     "health": "5",
     "effect": "On Play, Draw 1 card.",
     "image": ""
+  },
+  {
+    "id": "",
+    "name": "Android 20",
+    "cost": "10",
+    "power": "10",
+    "health": "10",
+    "effect": "On Play, KO 1 card.",
+    "image": ""
   }
 ]
