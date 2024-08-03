@@ -70,21 +70,5 @@
     "power": "9",
     "health": "9",
     "effect": ""
-  },
-  {
-    "id": "0003",
-    "title": "A New Title",
-    "content": "Some new content"
-  },
-  {
-    "id": "0004",
-    "title": "Another New Title"
-  },
-  {
-    "name": "Android 18",
-    "cost": "1",
-    "power": "4",
-    "health": "5",
-    "effect": "On Play, Draw 1 card."
   }
 ]

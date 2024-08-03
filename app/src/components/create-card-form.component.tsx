@@ -20,6 +20,14 @@ export const CreateCardForm = () => {
     }
   };
 
+  const onSave = () => {
+    addCard(card).then(() => {
+      alert('Card has added successfully;')
+    }).catch(() => {
+      alert('Error adding card.');
+    });
+  };
+
   return (
     <div>
       <div className="row">
@@ -93,7 +101,7 @@ export const CreateCardForm = () => {
             <button
               type="button"
               className="btn btn-primary"
-              onClick={() => addCard(card)}
+              onClick={onSave}
             >
               Save
             </button>

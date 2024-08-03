@@ -1,6 +1,6 @@
-import React from "react";
-import cardList from "../assets/cards.json";
+import React, { useEffect, useState } from "react";
 import { ICard } from "../types/card";
+import { getCards } from "../services/card-database.service";
 
 interface ICardImageProps {
   onCardSelected: (card: ICard) => void;
@@ -9,6 +9,17 @@ interface ICardImageProps {
 export const CardTable: React.FC<ICardImageProps> = (
   props: ICardImageProps
 ) => {
+
+  const [cardList, setCardList] = useState<ICard[]>([]);
+  
+  useEffect(() => {
+    getCards().then((data) => {
+      setCardList(data);
+    }).catch(() => {
+      alert('Unable to retrieve cards.');
+    });
+  }, [])
+
   return (
     <table className="table table-bordered table-striped table-hover">
       <thead>
@@ -23,7 +34,7 @@ export const CardTable: React.FC<ICardImageProps> = (
       </thead>
 
       <tbody>
-        {cardList.map((card: ICard) => (
+        {cardList?.map((card: ICard) => (
           <tr key={card.id}>
             <td>{card.name}</td>
             <td>{card.cost}</td>

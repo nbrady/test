@@ -18,26 +18,16 @@ export const initialize = (password: string) => {
     message: "Adding new card.",
     author: { name: "Internal User", email: "internal@gmail.com" },
   });
-}
-
-export const getCards = () => {
-  gitrows
-    .get(path)
-    .then((data: any) => {
-      //handle (Array/Object)data
-      console.log(data);
-    })
-    .catch(() => {
-      //handle error, which has the format (Object){code:http_status_code,description='http_status_description'}
-    });
 };
 
-export const addCard = (card: ICard) => {
-  gitrows.put(path, card)
-    .then(() => {
-      //handle response, which has the format (Object){code:200,description='OK'}
-    })
-    .catch(() => {
-      //handle error, which has the format (Object){code:http_status_code,description='http_status_description'}
-    });
+export const getCards = (): Promise<ICard[]> => {
+  return gitrows.get(path).then((data: ICard[]) => {
+    return data;
+  })
+};
+
+export const addCard = (card: ICard): Promise<boolean> => {
+  return gitrows.put(path, card).then(() => {
+    return true;
+  });
 };
