@@ -3,18 +3,24 @@ import { ICard } from "../types/card";
 
 const Gitrows = require("gitrows");
 
-const path = "https://raw.githubusercontent.com/nbrady/test/main/app/src/assets/cards.json";
+const USER = "nbrady";
+const REPO = "test";
+const BRANCH = "database";
+const FILE = "card.json";
+
+const NON_API_PATH = `https://raw.githubusercontent.com/${USER}/${REPO}/${BRANCH}/${FILE}`;
+const API_PATH = `https://api.github.com/repos/${USER}/${REPO}/contents/${FILE}`
 
 let gitrows: any;
 
 export const initialize = (password: string) => {
   gitrows = new Gitrows({
     ns: "github",
-    owner: "nbrady",
-    repo: "test",
-    branch: "main",
-    path: `cards.json`,
-    user: "nbrady",
+    owner: USER,
+    repo: REPO,
+    branch: BRANCH,
+    path: FILE,
+    user: USER,
     token: password,
     message: "Adding new card.",
     author: { name: "Internal User", email: "internal@gmail.com" },
@@ -22,13 +28,14 @@ export const initialize = (password: string) => {
 };
 
 export const getCards = (): Promise<ICard[]> => {
-  return axios.get(`https://api.github.com/repos/nbrady/test/contents/app/src/assets/cards.json`).then((data: any) => {
+  // USE API_PATH to avoid caching
+  return axios.get(API_PATH).then((data: any) => {
     return JSON.parse(atob(data.data.content));
   });
 };
 
 export const addCard = (card: ICard): Promise<boolean> => {
-  return gitrows.put(path, card).then(() => {
+  return gitrows.put(NON_API_PATH, card).then(() => {
     return true;
   });
 };
