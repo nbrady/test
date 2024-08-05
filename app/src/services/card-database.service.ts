@@ -6,7 +6,7 @@ const Gitrows = require("gitrows");
 const USER = "nbrady";
 const REPO = "test";
 const BRANCH = "database";
-const FILE = "card.json";
+const FILE = "cards.json";
 
 const NON_API_PATH = `https://raw.githubusercontent.com/${USER}/${REPO}/${BRANCH}/${FILE}`;
 const API_PATH = `https://api.github.com/repos/${USER}/${REPO}/contents/${FILE}`
