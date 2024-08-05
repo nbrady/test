@@ -14,17 +14,19 @@ export const CreateCardForm = () => {
     image: '',
   });
 
+  // TODO: Store base64 in JSON
   const setImage = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
       setCard({ ...card, image: URL.createObjectURL(event.target.files[0]) });
     }
   };
 
+  // TODO: Set id automatically autoincrement
   const onSave = () => {
     addCard(card).then(() => {
-      alert('Card has added successfully;')
-    }).catch(() => {
-      alert('Error adding card.');
+      alert('Card has added successfully.')
+    }).catch((error) => {
+      alert(error);
     });
   };
 

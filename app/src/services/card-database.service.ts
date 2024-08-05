@@ -1,3 +1,4 @@
+import axios from "axios";
 import { ICard } from "../types/card";
 
 const Gitrows = require("gitrows");
@@ -12,7 +13,7 @@ export const initialize = (password: string) => {
     owner: "nbrady",
     repo: "test",
     branch: "main",
-    path: "cards.json",
+    path: `cards.json`,
     user: "nbrady",
     token: password,
     message: "Adding new card.",
@@ -21,9 +22,9 @@ export const initialize = (password: string) => {
 };
 
 export const getCards = (): Promise<ICard[]> => {
-  return gitrows.get(path).then((data: ICard[]) => {
-    return data;
-  })
+  return axios.get(`https://api.github.com/repos/nbrady/test/contents/app/src/assets/cards.json`).then((data: any) => {
+    return JSON.parse(atob(data.data.content));
+  });
 };
 
 export const addCard = (card: ICard): Promise<boolean> => {
