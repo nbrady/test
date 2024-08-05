@@ -106,5 +106,14 @@
     "health": "5",
     "effect": "On Play, Draw 1 card.",
     "image": ""
+  },
+  {
+    "id": "",
+    "name": "Newest Card",
+    "cost": "1",
+    "power": "10",
+    "health": "10",
+    "effect": "On Play, Draw 1 card.",
+    "image": ""
   }
 ]
