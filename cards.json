@@ -1,0 +1,74 @@
+[
+    {
+      "id": "1",
+      "name": "Android 1",
+      "cost": "1",
+      "power": "1",
+      "health": "1",
+      "effect": ""
+    },
+    {
+      "id": "2",
+      "name": "Android 2",
+      "cost": "2",
+      "power": "2",
+      "health": "2",
+      "effect": ""
+    },
+    {
+      "id": "3",
+      "name": "Android 3",
+      "cost": "3",
+      "power": "3",
+      "health": "3",
+      "effect": ""
+    },
+    {
+      "id": "4",
+      "name": "Android 4",
+      "cost": "4",
+      "power": "4",
+      "health": "4",
+      "effect": ""
+    },
+    {
+      "id": "5",
+      "name": "Android 5",
+      "cost": "5",
+      "power": "5",
+      "health": "5",
+      "effect": ""
+    },
+    {
+      "id": "6",
+      "name": "Android 6",
+      "cost": "6",
+      "power": "6",
+      "health": "6",
+      "effect": ""
+    },
+    {
+      "id": "7",
+      "name": "Android 7",
+      "cost": "7",
+      "power": "7",
+      "health": "7",
+      "effect": ""
+    },
+    {
+      "id": "8",
+      "name": "Android 8",
+      "cost": "8",
+      "power": "8",
+      "health": "8",
+      "effect": ""
+    },
+    {
+      "id": "9",
+      "name": "Android 9",
+      "cost": "9",
+      "power": "9",
+      "health": "9",
+      "effect": ""
+    }
+  ]
