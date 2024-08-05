@@ -97,5 +97,14 @@
     "health": "5",
     "effect": "On Play, KO 1 card.",
     "image": ""
+  },
+  {
+    "id": "",
+    "name": "Android 18",
+    "cost": "10",
+    "power": "4",
+    "health": "5",
+    "effect": "On Play, Draw 1 card.",
+    "image": ""
   }
 ]
