@@ -115,5 +115,14 @@
     "health": "14",
     "effect": "",
     "image": ""
+  },
+  {
+    "id": 10,
+    "name": "Newest Card",
+    "cost": "12",
+    "power": "12",
+    "health": "12",
+    "effect": "",
+    "image": ""
   }
 ]
