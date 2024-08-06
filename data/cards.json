@@ -70,5 +70,14 @@
     "power": "9",
     "health": "9",
     "effect": ""
+  },
+  {
+    "id": "91",
+    "name": "Android 10",
+    "cost": "10",
+    "power": "10",
+    "health": "10",
+    "effect": "",
+    "image": ""
   }
 ]
