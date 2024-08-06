@@ -106,5 +106,14 @@
     "health": "13",
     "effect": "",
     "image": ""
+  },
+  {
+    "id": 10,
+    "name": "Android 14",
+    "cost": "14",
+    "power": "14",
+    "health": "14",
+    "effect": "",
+    "image": ""
   }
 ]
