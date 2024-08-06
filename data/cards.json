@@ -97,5 +97,14 @@
     "health": "12",
     "effect": "",
     "image": ""
+  },
+  {
+    "id": "9",
+    "name": "Android 13",
+    "cost": "13",
+    "power": "13",
+    "health": "13",
+    "effect": "",
+    "image": ""
   }
 ]
