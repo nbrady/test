@@ -5,7 +5,7 @@ import { addCard } from "../services/card-database.service";
 
 export const CreateCardForm = () => {
   const [card, setCard] = useState<ICard>({
-    id: '',
+    id: -1,
     name: '',
     cost: '',
     power: '',
@@ -26,6 +26,7 @@ export const CreateCardForm = () => {
     addCard(card).then(() => {
       alert('Card has added successfully.')
     }).catch((error) => {
+      console.log(error);
       alert(error);
     });
   };

@@ -12,12 +12,11 @@ export const CardTable: React.FC<ICardImageProps> = (
 
   const [cardList, setCardList] = useState<ICard[]>([]);
   
-  // FIXME: Somehow how this is cached
   useEffect(() => {
     getCards().then((data) => {
-      console.log(data);
       setCardList(data);
     }).catch((error) => {
+      console.log(error);
       alert(error);
     });
   }, [])
