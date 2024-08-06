@@ -10,8 +10,8 @@ export const CardImage: React.FC<CardImageProps> = (props: CardImageProps) => {
   let imageUrl = `${process.env.PUBLIC_URL}/cards/default-card.png`;
   if (props.card.image) {
     imageUrl = props.card.image;
-  } else if (props.card.id) {
-    imageUrl = `${process.env.PUBLIC_URL}/cards/${props.card.id}.png`;
+  } else {
+    imageUrl = `${process.env.PUBLIC_URL}/cards/default-card.png`;
   }
 
   return (

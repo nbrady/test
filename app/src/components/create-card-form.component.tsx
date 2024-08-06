@@ -14,14 +14,20 @@ export const CreateCardForm = () => {
     image: '',
   });
 
-  // TODO: Store base64 in JSON
-  const setImage = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const setImage = async (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
-      setCard({ ...card, image: URL.createObjectURL(event.target.files[0]) });
+      const base64Image = await toBase64(event.target.files) as string;
+      setCard({ ...card, image: base64Image });
     }
   };
 
-  // TODO: Set id automatically autoincrement
+  const toBase64 = (fileList: FileList) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(fileList[0]);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+  });
+
   const onSave = () => {
     addCard(card).then(() => {
       alert('Card has added successfully.')

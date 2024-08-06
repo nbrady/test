@@ -8,7 +8,6 @@ import { CardImage } from "./components/card-image.component";
 import { initialize } from "./services/card-database.service";
 
 // TODO: Make functional component, is that why this formats and other files don't
-// TODO: Add images to JSON
 function App() {
   const [mode, setMode] = useState<string>("login");
   const [selectedCard, setSelectedCard] = useState<ICard>();
@@ -17,21 +16,19 @@ function App() {
     <div className="container-fluid">
       {mode === "login" && (
         <>
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={() => setMode("add")}
-          >
-            Login
-          </button>
-
           <input 
             type='text'               
             onChange={(event) => {
                 initialize(event.target.value);
-                setMode('edit');
             }} 
           />
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={() => setMode("edit")}
+          >
+            Login
+          </button>
         </>
       )}
 
