@@ -5,11 +5,11 @@ const Gitrows = require("gitrows");
 
 const USER = "nbrady";
 const REPO = "test";
-const BRANCH = "database";
-const FILE = "cards.json";
+const BRANCH = "main";
+const FILE_PATH = "/data/cards.json";
 
-const NON_API_PATH = `https://raw.githubusercontent.com/${USER}/${REPO}/${BRANCH}/${FILE}`;
-const API_PATH = `https://api.github.com/repos/${USER}/${REPO}/contents/${FILE}?ref=${BRANCH}`
+const NON_API_PATH = `https://raw.githubusercontent.com/${USER}/${REPO}/${BRANCH}/${FILE_PATH}`;
+const API_PATH = `https://api.github.com/repos/${USER}/${REPO}/contents/${FILE_PATH}?ref=${BRANCH}`
 
 let gitrows: any;
 
@@ -19,7 +19,7 @@ export const initialize = (password: string) => {
     owner: USER,
     repo: REPO,
     branch: BRANCH,
-    path: FILE,
+    path: FILE_PATH,
     user: USER,
     token: password,
     message: "Adding new card.",
