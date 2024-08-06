@@ -79,5 +79,14 @@
     "health": "10",
     "effect": "",
     "image": ""
+  },
+  {
+    "id": "",
+    "name": "Android 11",
+    "cost": "11",
+    "power": "11",
+    "health": "11",
+    "effect": "",
+    "image": ""
   }
 ]
