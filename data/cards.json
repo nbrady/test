@@ -124,5 +124,14 @@
     "health": "12",
     "effect": "",
     "image": ""
+  },
+  {
+    "id": 11,
+    "name": "Test",
+    "cost": "12",
+    "power": "12",
+    "health": "12",
+    "effect": "",
+    "image": ""
   }
 ]
