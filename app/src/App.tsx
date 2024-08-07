@@ -1,16 +1,13 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { CreateCardForm } from "./components/create-card-form.component";
-import { CardTable } from "./components/card-table.component";
-import { ICard } from "./types/card";
+import { CardList } from "./components/card-list.component";
 import { useState } from "react";
-import { CardImage } from "./components/card-image.component";
 import { initialize } from "./services/card-database.service";
 
 // TODO: Make functional component, is that why this formats and other files don't
 function App() {
   const [mode, setMode] = useState<string>("login");
-  const [selectedCard, setSelectedCard] = useState<ICard>();
 
   return (
     <div className="container-fluid">
@@ -45,13 +42,7 @@ function App() {
           </button>
 
           <div className="row">
-            <div className="col-8">
-              <CardTable onCardSelected={setSelectedCard} />
-            </div>
-
-            <div className="col-4">
-              {selectedCard && <CardImage card={selectedCard} />}
-            </div>
+            <CardList />
           </div>
         </>
       )}
