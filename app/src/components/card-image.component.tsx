@@ -10,12 +10,10 @@ export const CardImage: React.FC<CardImageProps> = (props: CardImageProps) => {
   let imageUrl = `${process.env.PUBLIC_URL}/cards/default-card.png`;
   if (props.card.image) {
     imageUrl = props.card.image;
-  } else {
-    imageUrl = `${process.env.PUBLIC_URL}/cards/default-card.png`;
-  }
+  } 
 
   return (
-    <div className="position-relative">
+    <div className="card-container position-relative">
       <img className="card-image" src={imageUrl} alt={props.card.name} />
 
       <div className="card-top">
@@ -23,7 +21,7 @@ export const CardImage: React.FC<CardImageProps> = (props: CardImageProps) => {
           <h2>{props.card.cost}</h2>
         </div>
 
-        <div className="card-rectangle-container end-0 text-center">
+        <div className="card-rectangle-container end-0 text-center h-100">
           <h2>{props.card.name}</h2>
         </div>
       </div>

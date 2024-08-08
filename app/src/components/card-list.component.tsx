@@ -25,7 +25,7 @@ export const CardList: React.FC<ICardListProps> = (
   return (
     <div className="row container">
       {cardList?.map((card: ICard) => (
-        <div className="col-4 p-2">
+        <div className="col-3 p-2">
           <CardImage card={card} key={card.id}/>
         </div>
       ))}
