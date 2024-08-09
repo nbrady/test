@@ -18,27 +18,27 @@ export const CardImage: React.FC<CardImageProps> = (props: CardImageProps) => {
 
       <div className="card-top">
         <div className="card-circle-container start-0">
-          <h2>{props.card.cost}</h2>
+          {props.card.cost}
         </div>
 
         <div className="card-rectangle-container end-0 text-center h-100">
-          <h2>{props.card.name}</h2>
+          {props.card.name}
         </div>
       </div>
 
       {props.card.effect && (
         <div className="card-middle card-rectangle-container p-1">
-          <h6>{props.card.effect}</h6>
+          {props.card.effect}
         </div>
       )}
 
       <div className="card-bottom">
         {/* Use font awesome icons */}
         <div className="card-circle-container bottom-0 start-0">
-          <h2>{props.card.power}</h2>
+          {props.card.power}
         </div>
         <div className="card-circle-container bottom-0 end-0">
-          <h2>{props.card.health}</h2>
+          {props.card.health}
         </div>
       </div>
     </div>
