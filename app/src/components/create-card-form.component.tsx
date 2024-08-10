@@ -11,13 +11,14 @@ export const CreateCardForm = () => {
     power: '',
     health: '',
     effect: '',
-    image: '',
   });
+
+  const [imagePreview, setImagePreview] = useState<string>();
 
   const setImage = async (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
-      const base64Image = await toBase64(event.target.files) as string;
-      setCard({ ...card, image: base64Image });
+      let base64Image = await toBase64(event.target.files) as string;
+      setImagePreview(base64Image);
     }
   };
 
@@ -29,7 +30,7 @@ export const CreateCardForm = () => {
   });
 
   const onSave = () => {
-    addCard(card).then(() => {
+    addCard(card, imagePreview).then(() => {
       alert('Card has added successfully.')
     }).catch((error) => {
       console.log(error);
@@ -119,7 +120,7 @@ export const CreateCardForm = () => {
 
         <div className="col-4">
           <label htmlFor="card-preview">Card Preview: </label>
-          <CardImage card={card} />
+          <CardImage card={card} imagePreview={imagePreview} />
         </div>
       </div>
     </div>

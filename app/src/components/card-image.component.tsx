@@ -3,14 +3,15 @@ import { ICard } from "../types/card";
 
 interface CardImageProps {
   card: ICard;
+  imagePreview?: string;
 }
 
 // 860 x 1205
 export const CardImage: React.FC<CardImageProps> = (props: CardImageProps) => {
-  let imageUrl = `${process.env.PUBLIC_URL}/cards/default-card.png`;
-  if (props.card.image) {
-    imageUrl = props.card.image;
-  } 
+  let imageUrl = `${process.env.PUBLIC_URL}/images/${props.card.id}.png`;
+  if (props.imagePreview) {
+    imageUrl = props.imagePreview;
+  }
 
   return (
     <div className="card-container position-relative">

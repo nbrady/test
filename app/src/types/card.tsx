@@ -5,5 +5,4 @@ export interface ICard {
   power?: string;
   health?: string;
   effect?: string;
-  image?: string;
 }
