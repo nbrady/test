@@ -4,13 +4,14 @@ import { Octokit } from "octokit";
 
 const Gitrows = require("gitrows");
 
-const USER = "nbrady";
+const OWNER = "nbrady";
 const REPO = "test";
 const BRANCH = "main";
-const FILE_PATH = "data/cards.json";
+const DATA_PATH = "data/cards.json";
+const IMAGE_PATH = `app/public/images`;
 
-const NON_API_PATH = `https://raw.githubusercontent.com/${USER}/${REPO}/${BRANCH}/${FILE_PATH}`;
-const API_PATH = `https://api.github.com/repos/${USER}/${REPO}/contents/${FILE_PATH}?ref=${BRANCH}`
+const NON_API_PATH = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${DATA_PATH}`;
+const API_PATH = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${DATA_PATH}?ref=${BRANCH}`
 
 let gitrows: any;
 let octokit: Octokit;
@@ -18,20 +19,17 @@ let octokit: Octokit;
 export const initialize = (password: string) => {
   gitrows = new Gitrows({
     ns: "github",
-    owner: USER,
+    owner: OWNER,
     repo: REPO,
     branch: BRANCH,
-    path: FILE_PATH,
-    user: USER,
+    path: DATA_PATH,
+    user: OWNER,
     token: password,
     message: "Adding new card.",
     author: { name: "Internal User", email: "internal@gmail.com" },
   });
 
-  octokit = new Octokit({
-    auth: password,
-    log: console,
-  });
+  octokit = new Octokit({auth: password});
 };
 
 export const getCards = (): Promise<ICard[]> => {
@@ -65,10 +63,10 @@ export const addImage = async (id: number, image: string) => {
   await octokit.rest.users.getAuthenticated();
 
   await octokit.rest.repos.createOrUpdateFileContents({
-    owner: USER,
+    owner: OWNER,
     repo: REPO,
     message: "Adding an image to the repository",
-    path: `images/${id}.png`,
+    path: `${IMAGE_PATH}/${id}.png`,
     content: image.replace('data:image/png;base64,', ''),
     committer: { name: "Internal User", email: "internal@gmail.com" },
     author: { name: "Internal User", email: "internal@gmail.com" },
