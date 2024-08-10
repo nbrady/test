@@ -86,5 +86,13 @@
     "power": "11",
     "health": "11",
     "effect": "On Play, KO 1 card."
+  },
+  {
+    "id": 12,
+    "name": "Android 12",
+    "cost": "12",
+    "power": "12",
+    "health": "12",
+    "effect": "When this card is played from your hand, look at up to 5 cards from the top of your deck, add up to 1 red Battle Card with an energy cost of 5 or less and <SH> in its character name to your hand, then shuffle your deck."
   }
 ]
