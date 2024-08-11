@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ICard } from "../types/card";
+import { retrieveImage } from "../services/card-database.service";
 
 interface CardImageProps {
   card: ICard;
@@ -8,16 +9,21 @@ interface CardImageProps {
 
 // 860 x 1205
 export const CardImage: React.FC<CardImageProps> = (props: CardImageProps) => {
-  let imageUrl = `${process.env.PUBLIC_URL}/images/${props.card.id}.png`;
-  //let imageUrl = `${process.env.PUBLIC_URL}/cards/default-card.png`
-  console.log(imageUrl);
-  // if (props.imagePreview) {
-  //   imageUrl = props.imagePreview;
-  // }
+
+  const [image, setImage] = useState<string>();;
+  
+  useEffect(() => {
+    retrieveImage(props.card.id).then((base64Image) => {
+      setImage(`data:image/png;base64,${base64Image}`);
+    }).catch((error) => {
+      console.log(error);
+      alert(error);
+    });
+  }, [setImage, props.card.id]);
 
   return (
     <div className="card-container position-relative">
-      <img className="card-image" src={imageUrl} alt={props.card.name} />
+      <img className="card-image" src={image} alt={props.card.name} />
 
       <div className="card-top">
         <div className="card-circle-container start-0">

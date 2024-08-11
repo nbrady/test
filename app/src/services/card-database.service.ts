@@ -52,14 +52,28 @@ export const addCard = (card: ICard, image?: string): Promise<boolean> => {
     card.id = id;
     return gitrows.put(NON_API_PATH, card).then(async () => {
       if (image) {
-        await addImage(id, image);
+        await createImage(id, image);
       }
     });
   });
 };
 
-export const addImage = async (id: number, image: string) => {
 
+export const retrieveImage = async (id: number): Promise<string> => {
+  await octokit.rest.users.getAuthenticated();
+
+  return await octokit.rest.repos
+    .getContent({
+      owner: OWNER,
+      repo: REPO,
+      path: `${IMAGE_PATH}/${id}.png`,
+    })
+    .then((result: any) => {
+      return result.data.content;
+    });
+};
+
+export const createImage = async (id: number, image: string) => {
   await octokit.rest.users.getAuthenticated();
 
   await octokit.rest.repos.createOrUpdateFileContents({
@@ -67,8 +81,8 @@ export const addImage = async (id: number, image: string) => {
     repo: REPO,
     message: "Adding an image to the repository",
     path: `${IMAGE_PATH}/${id}.png`,
-    content: image.replace('data:image/png;base64,', ''),
+    content: image.replace("data:image/png;base64,", ""),
     committer: { name: "Internal User", email: "internal@gmail.com" },
     author: { name: "Internal User", email: "internal@gmail.com" },
   });
-}
+};
