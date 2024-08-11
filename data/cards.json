@@ -78,5 +78,13 @@
     "power": "10",
     "health": "10",
     "effect": "On Play, Draw 1 card."
+  },
+  {
+    "id": 11,
+    "name": "Android 11",
+    "cost": "11",
+    "power": "11",
+    "health": "11",
+    "effect": "On Play, KO 1 card."
   }
 ]
