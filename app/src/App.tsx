@@ -50,17 +50,7 @@ function App() {
       )}
 
       {mode === "add" && (
-        <>
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={() => setMode("edit")}
-          >
-            Edit Card
-          </button>
-
-          <CreateCardForm />
-        </>
+        <CreateCardForm onCancel={() => setMode("edit")}/>
       )}
     </div>
   );
