@@ -34,14 +34,13 @@ export const CreateCardForm = () => {
       alert('Card has added successfully.')
     }).catch((error) => {
       console.log(error);
-      alert(error);
     });
   };
 
   return (
     <div>
       <div className="row">
-        <div className="col-8">
+        <div className="col-9">
           <div>
             <label htmlFor="card-name">Card Name: </label>
             <input
@@ -118,7 +117,7 @@ export const CreateCardForm = () => {
           </div>
         </div>
 
-        <div className="col-4">
+        <div className="col-3">
           <label htmlFor="card-preview">Card Preview: </label>
           <CardImage card={card} imagePreview={imagePreview} />
         </div>

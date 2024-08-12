@@ -91,7 +91,8 @@
   max-height: 20%;
   width: 95%;
   margin: 2.5% !important;
-  font-size: 3cqw;
+  font-size: 4cqw;
+  font-weight: normal;
 }
 
 .card-bottom {
