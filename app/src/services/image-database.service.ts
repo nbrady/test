@@ -2,7 +2,7 @@ import { Octokit } from "octokit";
 
 const OWNER = "nbrady";
 const REPO = "test";
-const IMAGE_PATH = `app/public/images`;
+const IMAGE_PATH = `images`;
 
 let octokit: Octokit;
 
@@ -13,8 +13,6 @@ export const initializeImageDB = (password: string) => {
 // TODO: Retrieve all images at once
 
 export const retrieveImage = async (id: number): Promise<string> => {
-  await octokit.rest.users.getAuthenticated();
-
   return await octokit.rest.repos.getContent({
     owner: OWNER,
     repo: REPO,
@@ -25,8 +23,6 @@ export const retrieveImage = async (id: number): Promise<string> => {
 };
 
 export const createImage = async (id: number, image: string) => {
-  await octokit.rest.users.getAuthenticated();
-
   await octokit.rest.repos.createOrUpdateFileContents({
     owner: OWNER,
     repo: REPO,

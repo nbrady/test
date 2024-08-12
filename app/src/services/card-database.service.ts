@@ -19,8 +19,6 @@ export const getNextId = (cards: ICard[]): number => {
 };
 
 export const retrieveCards = async (): Promise<ICard[]> => {
-  await octokit.rest.users.getAuthenticated();
-
   return octokit.rest.repos.getContent({
       owner: OWNER,
       repo: REPO,
@@ -31,8 +29,6 @@ export const retrieveCards = async (): Promise<ICard[]> => {
 };
 
 export const createCard = async (card: ICard, image?: string): Promise<boolean> => {
-  await octokit.rest.users.getAuthenticated();
-
   return await octokit.rest.repos.getContent({
     owner: OWNER,
     repo: REPO,
