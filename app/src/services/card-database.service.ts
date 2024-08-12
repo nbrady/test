@@ -14,8 +14,8 @@ export const initializeCardDB = (password: string) => {
 
 export const getNextId = (cards: ICard[]): number => {
   // Auto-increment the ID
-  cards.sort((card1, card2) => {return card1.id > card2.id ? -1 : 1;});
-  return cards[0].id + 1;;
+  const sorted = [...cards].sort((card1, card2) => {return card1.id > card2.id ? -1 : 1;});
+  return sorted[0].id + 1;;
 };
 
 export const retrieveCards = async (): Promise<ICard[]> => {
@@ -49,7 +49,7 @@ export const createCard = async (card: ICard, image?: string): Promise<boolean> 
       repo: REPO,
       message: "Adding a card to the repository",
       path: `${DATA_PATH}`,
-      content: Buffer.from(JSON.stringify(cards)).toString('base64'),
+      content: Buffer.from(JSON.stringify(cards, null, 2)).toString('base64'), // pretty-print
       committer: { name: "Internal User", email: "internal@gmail.com" },
       author: { name: "Internal User", email: "internal@gmail.com" },
       sha: sha
