@@ -7,3 +7,8 @@ https://github.com/gitname/react-gh-pages
 https://github.com/gitrows/gitrows
 
 Currently github is used as a database.
+
+# Github API
+https://github.com/octokit/octokit.js
+
+Octokit is used to access the Github API.

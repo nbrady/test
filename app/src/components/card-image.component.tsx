@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ICard } from "../types/card";
-import { retrieveImage } from "../services/card-database.service";
+import { retrieveImage } from "../services/image-database.service";
 
 interface CardImageProps {
   card: ICard;
@@ -13,13 +13,17 @@ export const CardImage: React.FC<CardImageProps> = (props: CardImageProps) => {
   const [image, setImage] = useState<string>();;
   
   useEffect(() => {
-    retrieveImage(props.card.id).then((base64Image) => {
-      setImage(`data:image/png;base64,${base64Image}`);
-    }).catch((error) => {
-      console.log(error);
-      alert(error);
-    });
-  }, [setImage, props.card.id]);
+    if (props.imagePreview) {
+      setImage(props.imagePreview);
+    } else {
+      retrieveImage(props.card.id).then((base64Image) => {
+        setImage(`data:image/png;base64,${base64Image}`);
+      }).catch((error) => {
+        console.log(error);
+        alert(error);
+      });
+    }
+  }, [setImage, props.card.id, props.imagePreview]);
 
   return (
     <div className="card-container position-relative">

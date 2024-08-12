@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CardImage } from "./card-image.component";
 import { ICard } from "../types/card";
-import { addCard } from "../services/card-database.service";
+import { createCard } from "../services/card-database.service";
 
 export const CreateCardForm = () => {
   const [card, setCard] = useState<ICard>({
@@ -30,7 +30,7 @@ export const CreateCardForm = () => {
   });
 
   const onSave = () => {
-    addCard(card, imagePreview).then(() => {
+    createCard(card, imagePreview).then(() => {
       alert('Card has added successfully.')
     }).catch((error) => {
       console.log(error);

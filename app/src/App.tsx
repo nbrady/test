@@ -3,7 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { CreateCardForm } from "./components/create-card-form.component";
 import { CardList } from "./components/card-list.component";
 import { useState } from "react";
-import { initialize } from "./services/card-database.service";
+import { initializeCardDB } from "./services/card-database.service";
+import { initializeImageDB } from "./services/image-database.service";
 
 // TODO: Make functional component, is that why this formats and other files don't
 function App() {
@@ -16,7 +17,8 @@ function App() {
           <input 
             type='text'               
             onChange={(event) => {
-                initialize(event.target.value);
+                initializeCardDB(event.target.value);
+                initializeImageDB(event.target.value)
             }} 
           />
           <button

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ICard } from "../types/card";
-import { getCards } from "../services/card-database.service";
+import { retrieveCards } from "../services/card-database.service";
 import { CardImage } from "./card-image.component";
 
 interface ICardListProps {
@@ -14,11 +14,11 @@ export const CardList: React.FC<ICardListProps> = (
   const [cardList, setCardList] = useState<ICard[]>([]);
   
   useEffect(() => {
-    getCards().then((data) => {
+    retrieveCards().then((data) => {
       setCardList(data);
     }).catch((error) => {
       console.log(error);
-      alert(error);
+      //alert(error);
     });
   }, [])
 

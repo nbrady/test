@@ -1,88 +1,64 @@
-import axios from "axios";
 import { ICard } from "../types/card";
+import { createImage } from "./image-database.service";
 import { Octokit } from "octokit";
-
-const Gitrows = require("gitrows");
 
 const OWNER = "nbrady";
 const REPO = "test";
-const BRANCH = "main";
 const DATA_PATH = "data/cards.json";
-const IMAGE_PATH = `app/public/images`;
 
-const NON_API_PATH = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${DATA_PATH}`;
-const API_PATH = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${DATA_PATH}?ref=${BRANCH}`
-
-let gitrows: any;
 let octokit: Octokit;
 
-export const initialize = (password: string) => {
-  gitrows = new Gitrows({
-    ns: "github",
-    owner: OWNER,
-    repo: REPO,
-    branch: BRANCH,
-    path: DATA_PATH,
-    user: OWNER,
-    token: password,
-    message: "Adding new card.",
-    author: { name: "Internal User", email: "internal@gmail.com" },
-  });
-
-  octokit = new Octokit({auth: password});
+export const initializeCardDB = (password: string) => {
+  octokit = new Octokit({ auth: password });
 };
 
-export const getCards = (): Promise<ICard[]> => {
-  // USE API_PATH to avoid caching
-  return axios.get(API_PATH).then((data: any) => {
-    return JSON.parse(atob(data.data.content));
-  });
-};
-
-export const getNextId = (): Promise<number> => {
+export const getNextId = (cards: ICard[]): number => {
   // Auto-increment the ID
-  return getCards().then((cards: ICard[]) => {
-    cards.sort((card1, card2) => {return card1.id > card2.id ? -1 : 1;});
-    return cards[0].id + 1;;
-  });
+  cards.sort((card1, card2) => {return card1.id > card2.id ? -1 : 1;});
+  return cards[0].id + 1;;
 };
 
-export const addCard = (card: ICard, image?: string): Promise<boolean> => {
-  return getNextId().then((id) => {
-    card.id = id;
-    return gitrows.put(NON_API_PATH, card).then(async () => {
-      if (image) {
-        await createImage(id, image);
-      }
-    });
-  });
-};
-
-
-export const retrieveImage = async (id: number): Promise<string> => {
+export const retrieveCards = async (): Promise<ICard[]> => {
   await octokit.rest.users.getAuthenticated();
 
-  return await octokit.rest.repos
-    .getContent({
+  return octokit.rest.repos.getContent({
       owner: OWNER,
       repo: REPO,
-      path: `${IMAGE_PATH}/${id}.png`,
-    })
-    .then((result: any) => {
-      return result.data.content;
+      path: `${DATA_PATH}`,
+    }).then((result: any) => {
+      return JSON.parse(Buffer.from(result.data.content, 'base64').toString());
     });
 };
 
-export const createImage = async (id: number, image: string) => {
+export const createCard = async (card: ICard, image?: string): Promise<boolean> => {
   await octokit.rest.users.getAuthenticated();
 
-  await octokit.rest.repos.createOrUpdateFileContents({
+  return await octokit.rest.repos.getContent({
     owner: OWNER,
     repo: REPO,
-    message: "Adding an image to the repository",
-    path: `${IMAGE_PATH}/${id}.png`,
-    content: image.replace("data:image/png;base64,", ""),
-    committer: { name: "Internal User", email: "internal@gmail.com" },
-    author: { name: "Internal User", email: "internal@gmail.com" },
+    path: `${DATA_PATH}`,
+  }).then(async (result: any) => {
+    let sha = result.data.sha;
+
+    let cards = JSON.parse(Buffer.from(result.data.content, 'base64').toString());
+    card.id = getNextId(cards);
+    cards.push(card);
+
+    await octokit.rest.repos.createOrUpdateFileContents({
+      owner: OWNER,
+      repo: REPO,
+      message: "Adding a card to the repository",
+      path: `${DATA_PATH}`,
+      content: Buffer.from(JSON.stringify(cards)).toString('base64'),
+      committer: { name: "Internal User", email: "internal@gmail.com" },
+      author: { name: "Internal User", email: "internal@gmail.com" },
+      sha: sha
+    });
+
+    if (image) {
+      createImage(card.id, image);
+    }
+
+    return true;
   });
 };
