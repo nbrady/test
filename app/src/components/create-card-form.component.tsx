@@ -4,7 +4,7 @@ import { ICard } from "../types/card";
 import { createCard } from "../services/card-database.service";
 
 interface ICreateCardFormProps {
-  onCancel: () => void;
+  onBack: () => void;
 }
 
 export const CreateCardForm: React.FC<ICreateCardFormProps> = (props) => {
@@ -18,6 +18,8 @@ export const CreateCardForm: React.FC<ICreateCardFormProps> = (props) => {
   });
 
   const [imagePreview, setImagePreview] = useState<string>();
+  const [successMessage, setSuccessMessage] = useState<string>();
+  const [errorMessage, setErrorMessage] = useState<string>();
 
   const setImage = async (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
@@ -37,11 +39,27 @@ export const CreateCardForm: React.FC<ICreateCardFormProps> = (props) => {
   const onSave = () => {
     createCard(card, imagePreview)
       .then(() => {
-        alert("Card has added successfully.");
+        setSuccessMessage("Card has added successfully.");
+        setErrorMessage(undefined);
+        resetForm();
       })
       .catch((error) => {
         console.log(error);
+        setErrorMessage("Unable to add card.");
+        setSuccessMessage(undefined);
       });
+  };
+  
+  const resetForm = () => {
+    setCard({
+      id: -1,
+      name: "",
+      cost: "",
+      power: "",
+      health: "",
+      effect: "",
+    });
+    setImagePreview(undefined);
   };
 
   return (
@@ -51,6 +69,10 @@ export const CreateCardForm: React.FC<ICreateCardFormProps> = (props) => {
           <h4>Add Card</h4>
 
           <form>
+            {errorMessage && <div className="alert alert-danger" role="alert">{errorMessage}</div>}
+
+            {successMessage && <div className="alert alert-success" role="alert">{successMessage}</div>}
+
             <div className="row">
               <div className="form-group col">
                 <label htmlFor="card-name">Card Name: </label>
@@ -142,9 +164,9 @@ export const CreateCardForm: React.FC<ICreateCardFormProps> = (props) => {
             <button
               type="button"
               className="btn btn-primary m-1"
-              onClick={props.onCancel}
+              onClick={props.onBack}
             >
-              Cancel
+              Return to Card List
             </button>
           </form>
         </div>

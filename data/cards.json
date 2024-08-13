@@ -110,29 +110,5 @@
     "power": "14",
     "health": "14",
     "effect": "On play, KO 1 card."
-  },
-  {
-    "id": 15,
-    "name": "",
-    "cost": "",
-    "power": "",
-    "health": "",
-    "effect": ""
-  },
-  {
-    "id": 16,
-    "name": "",
-    "cost": "",
-    "power": "",
-    "health": "",
-    "effect": ""
-  },
-  {
-    "id": 17,
-    "name": "",
-    "cost": "",
-    "power": "",
-    "health": "",
-    "effect": ""
   }
 ]

@@ -35,22 +35,12 @@ function App() {
         <>
           {/* TODO: Format Buttons better, maybe tabs */}
           {/* TODO: Create edit card container */}
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={() => setMode("add")}
-          >
-            Add Card
-          </button>
-
-          <div className="row">
-            <CardList />
-          </div>
+          <CardList onAddCard={() => setMode("add")}/>
         </>
       )}
 
       {mode === "add" && (
-        <CreateCardForm onCancel={() => setMode("edit")}/>
+        <CreateCardForm onBack={() => setMode("edit")}/>
       )}
     </div>
   );
