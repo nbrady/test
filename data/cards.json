@@ -102,5 +102,13 @@
     "power": "13",
     "health": "13",
     "effect": ""
+  },
+  {
+    "id": 14,
+    "name": "Android 14",
+    "cost": "14",
+    "power": "14",
+    "health": "14",
+    "effect": "On play, KO 1 card."
   }
 ]
