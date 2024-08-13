@@ -86,5 +86,13 @@
     "power": "11",
     "health": "11",
     "effect": "On Play, KO 1 card."
+  },
+  {
+    "id": 12,
+    "name": "Android 12",
+    "cost": "12",
+    "power": "12",
+    "health": "12",
+    "effect": ""
   }
 ]
