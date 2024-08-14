@@ -1,5 +1,5 @@
 import { ICard } from "../types/card";
-import { createImage } from "./image-database.service";
+import { createImage, deleteImage } from "./image-database.service";
 import { Octokit } from "octokit";
 
 const OWNER = "nbrady";
@@ -54,6 +54,34 @@ export const createCard = async (card: ICard, image?: string): Promise<boolean> 
     if (image) {
       createImage(card.id, image);
     }
+
+    return true;
+  });
+};
+
+export const deleteCard = async (card: ICard): Promise<boolean> => {
+  return await octokit.rest.repos.getContent({
+    owner: OWNER,
+    repo: REPO,
+    path: `${DATA_PATH}`,
+  }).then(async (result: any) => {
+    let sha = result.data.sha;
+
+    let cards = JSON.parse(Buffer.from(result.data.content, 'base64').toString());
+    cards = cards.filter((currentCard: ICard) => currentCard.id !== card.id);
+
+    await octokit.rest.repos.createOrUpdateFileContents({
+      owner: OWNER,
+      repo: REPO,
+      message: "Delete a card from the repository",
+      path: `${DATA_PATH}`,
+      content: Buffer.from(JSON.stringify(cards, null, 2)).toString('base64'), // pretty-print
+      committer: { name: "Internal User", email: "internal@gmail.com" },
+      author: { name: "Internal User", email: "internal@gmail.com" },
+      sha: sha
+    });
+
+    await deleteImage(card.id);
 
     return true;
   });

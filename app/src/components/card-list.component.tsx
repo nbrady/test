@@ -4,8 +4,8 @@ import { retrieveCards } from "../services/card-database.service";
 import { CardImage } from "./card-image.component";
 
 interface ICardListProps {
-  //onCardSelected: (card: ICard) => void;
   onAddCard: () => void;
+  onEditCard: (card: ICard) => void;
 }
 
 export const CardList: React.FC<ICardListProps> = (
@@ -44,7 +44,7 @@ export const CardList: React.FC<ICardListProps> = (
       {!loading && (
         <div className="row container-fluid">
           {cardList?.map((card: ICard) => (
-            <div key={card.id} className="col-3 p-2">
+            <div key={card.id} className="col-3 p-2" onClick={() => props.onEditCard(card)}>
               <CardImage card={card} />
             </div>
           ))}

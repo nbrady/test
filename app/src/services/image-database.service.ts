@@ -33,3 +33,20 @@ export const createImage = async (id: number, image: string) => {
     author: { name: "Internal User", email: "internal@gmail.com" },
   });
 };
+
+export const deleteImage = async (id: number) => {
+  return await octokit.rest.repos.getContent({
+    owner: OWNER,
+    repo: REPO,
+    path: `${IMAGE_PATH}/${id}.png`,
+  }).then(async (result: any) => {
+    return await octokit.rest.repos.deleteFile({
+      owner: OWNER,
+      repo: REPO,
+      path: `${IMAGE_PATH}/${id}.png`,
+      message: "Deleting an image from the repository",
+      sha: result.data.sha,
+    });
+  });
+
+};
