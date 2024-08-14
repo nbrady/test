@@ -88,14 +88,6 @@
     "effect": ""
   },
   {
-    "id": 13,
-    "name": "Android 13",
-    "cost": "13",
-    "power": "13",
-    "health": "13",
-    "effect": ""
-  },
-  {
     "id": 14,
     "name": "Android 14",
     "cost": "14",
