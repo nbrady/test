@@ -94,5 +94,13 @@
     "power": "16",
     "health": "16",
     "effect": ""
+  },
+  {
+    "id": 17,
+    "name": "Android 17",
+    "cost": "17",
+    "power": "17",
+    "health": "17",
+    "effect": ""
   }
 ]
