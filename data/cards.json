@@ -78,5 +78,13 @@
     "power": "14",
     "health": "14",
     "effect": "On play, KO 1 card."
+  },
+  {
+    "id": 15,
+    "name": "Android 15",
+    "cost": "15",
+    "power": "15",
+    "health": "15",
+    "effect": "On Play, GG."
   }
 ]
