@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CardImage } from "./card-image.component";
 import { ICard } from "../types/card";
-import { createCard, deleteCard } from "../services/card-database.service";
+import { deleteCard, updateCard } from "../services/card-database.service";
 
 interface IEditCardFormProps {
   card: ICard;
@@ -31,14 +31,14 @@ export const EditCardForm: React.FC<IEditCardFormProps> = (props) => {
     });
 
   const onSave = () => {
-    createCard(card, imagePreview)
+    updateCard(card, imagePreview)
       .then(() => {
-        setSuccessMessage("Card has added successfully.");
+        setSuccessMessage("Card has updated successfully.");
         setErrorMessage(undefined);
       })
       .catch((error) => {
         console.log(error);
-        setErrorMessage("Unable to add card.");
+        setErrorMessage("Unable to update card.");
         setSuccessMessage(undefined);
       });
   };

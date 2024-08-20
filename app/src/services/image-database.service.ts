@@ -34,6 +34,25 @@ export const createImage = async (id: number, image: string) => {
   });
 };
 
+export const updateImage = async (id: number, image: string) => {
+  return await octokit.rest.repos.getContent({
+    owner: OWNER,
+    repo: REPO,
+    path: `${IMAGE_PATH}/${id}.png`,
+  }).then(async (result: any) => {
+    return await octokit.rest.repos.createOrUpdateFileContents({
+      owner: OWNER,
+      repo: REPO,
+      message: "Updating an image in the repository",
+      path: `${IMAGE_PATH}/${id}.png`,
+      content: image.replace("data:image/png;base64,", ""),
+      committer: { name: "Internal User", email: "internal@gmail.com" },
+      author: { name: "Internal User", email: "internal@gmail.com" },
+      sha: result.data.sha,
+    });
+  });
+};
+
 export const deleteImage = async (id: number) => {
   return await octokit.rest.repos.getContent({
     owner: OWNER,
@@ -43,10 +62,11 @@ export const deleteImage = async (id: number) => {
     return await octokit.rest.repos.deleteFile({
       owner: OWNER,
       repo: REPO,
-      path: `${IMAGE_PATH}/${id}.png`,
       message: "Deleting an image from the repository",
+      path: `${IMAGE_PATH}/${id}.png`,
+      committer: { name: "Internal User", email: "internal@gmail.com" },
+      author: { name: "Internal User", email: "internal@gmail.com" },
       sha: result.data.sha,
     });
   });
-
 };
