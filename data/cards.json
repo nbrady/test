@@ -86,5 +86,13 @@
     "power": "15",
     "health": "15",
     "effect": "On Play, GG."
+  },
+  {
+    "id": 16,
+    "name": "Android 16",
+    "cost": "16",
+    "power": "16",
+    "health": "16",
+    "effect": ""
   }
 ]
