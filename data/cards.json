@@ -102,5 +102,13 @@
     "power": "17",
     "health": "17",
     "effect": ""
+  },
+  {
+    "id": 18,
+    "name": "Newest Card",
+    "cost": "5",
+    "power": "3",
+    "health": "3",
+    "effect": "Search your deck for an Android."
   }
 ]
