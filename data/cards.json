@@ -78,21 +78,5 @@
     "power": "14",
     "health": "14",
     "effect": "On play, KO 1 card."
-  },
-  {
-    "id": 15,
-    "name": "Android 4",
-    "cost": "4",
-    "power": "4",
-    "health": "8",
-    "effect": ""
-  },
-  {
-    "id": 16,
-    "name": "Android 4",
-    "cost": "4",
-    "power": "4",
-    "health": "8",
-    "effect": ""
   }
 ]
