@@ -72,15 +72,6 @@
     "hasImage": false
   },
   {
-    "id": 9,
-    "name": "Android 9",
-    "cost": "9",
-    "power": "9",
-    "health": "9",
-    "effect": "",
-    "hasImage": false
-  },
-  {
     "id": 11,
     "name": "",
     "cost": "",
