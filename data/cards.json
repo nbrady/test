@@ -86,5 +86,14 @@
     "power": "10",
     "health": "10",
     "effect": ""
+  },
+  {
+    "id": 20,
+    "name": "Android 18",
+    "cost": "18",
+    "power": "18",
+    "health": "18",
+    "effect": "",
+    "hasImage": false
   }
 ]
