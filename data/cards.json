@@ -104,5 +104,14 @@
     "health": "19",
     "effect": "",
     "hasImage": true
+  },
+  {
+    "id": 22,
+    "name": "Newest Card",
+    "cost": "14",
+    "power": "14",
+    "health": "14",
+    "effect": "",
+    "hasImage": true
   }
 ]
