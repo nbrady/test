@@ -103,6 +103,6 @@
     "power": "19",
     "health": "19",
     "effect": "",
-    "hasImage": false
+    "hasImage": true
   }
 ]
