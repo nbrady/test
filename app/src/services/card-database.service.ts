@@ -135,7 +135,9 @@ export const deleteCard = async (card: ICard): Promise<boolean> => {
       sha: sha
     });
 
-    await deleteImage(card.id);
+    if (card.hasImage) {
+      await deleteImage(card.id);
+    }
 
     return true;
   });
