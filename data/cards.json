@@ -63,15 +63,6 @@
     "hasImage": false
   },
   {
-    "id": 8,
-    "name": "Android 8",
-    "cost": "8",
-    "power": "8",
-    "health": "8",
-    "effect": "",
-    "hasImage": false
-  },
-  {
     "id": 11,
     "name": "",
     "cost": "",
