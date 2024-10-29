@@ -95,5 +95,14 @@
     "health": "18",
     "effect": "",
     "hasImage": true
+  },
+  {
+    "id": 21,
+    "name": "Android 19",
+    "cost": "19",
+    "power": "19",
+    "health": "19",
+    "effect": "",
+    "hasImage": false
   }
 ]
