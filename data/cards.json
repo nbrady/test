@@ -78,5 +78,13 @@
     "power": "3",
     "health": "3",
     "effect": "Search your deck for an Android."
+  },
+  {
+    "id": 19,
+    "name": "Android 10",
+    "cost": "10",
+    "power": "10",
+    "health": "10",
+    "effect": ""
   }
 ]
