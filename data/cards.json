@@ -81,12 +81,21 @@
     "hasImage": false
   },
   {
-    "id": 10,
-    "name": "Android 10",
-    "cost": "10",
-    "power": "10",
-    "health": "10",
-    "effect": "On Play, Draw 1 card.",
-    "hasImage": false
+    "id": 11,
+    "name": "",
+    "cost": "",
+    "power": "",
+    "health": "",
+    "effect": "",
+    "hasImage": true
+  },
+  {
+    "id": 12,
+    "name": "",
+    "cost": "",
+    "power": "",
+    "health": "",
+    "effect": "",
+    "hasImage": true
   }
 ]
