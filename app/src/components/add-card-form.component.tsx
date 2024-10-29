@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { CardImage } from "./card-image.component";
 import { ICard } from "../types/card";
 import { createCard } from "../services/card-database.service";
@@ -17,6 +17,8 @@ export const CreateCardForm: React.FC<ICreateCardFormProps> = (props) => {
     effect: "",
     hasImage: false
   });
+
+  const imageRef = useRef<HTMLInputElement>(null);
 
   const [imagePreview, setImagePreview] = useState<string>();
   const [successMessage, setSuccessMessage] = useState<string>();
@@ -62,6 +64,10 @@ export const CreateCardForm: React.FC<ICreateCardFormProps> = (props) => {
       hasImage: false
     });
     setImagePreview(undefined);
+
+    if (imageRef.current) {
+      imageRef.current.value = '';
+    }
   };
 
   return (
@@ -149,6 +155,7 @@ export const CreateCardForm: React.FC<ICreateCardFormProps> = (props) => {
                 <input
                   id="card-image"
                   className="form-control"
+                  ref={imageRef}
                   type="file"
                   onChange={setImage}
                 />

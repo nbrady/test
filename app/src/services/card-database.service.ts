@@ -40,8 +40,14 @@ export const createCard = async (card: ICard, image?: string): Promise<boolean> 
     card.id = getNextId(cards);
 
     if (image) {
-      createImage(card.id, image);
-      card.hasImage = true;
+      try {
+        createImage(card.id, image);
+        card.hasImage = true;
+      } catch (error) {
+        card.hasImage = false;
+        console.error(error);
+      }
+
     } else {
       card.hasImage = false;
     }
@@ -75,8 +81,17 @@ export const updateCard = async (card: ICard, image?: string): Promise<boolean> 
     let index = cards.findIndex((currentCard: ICard) => currentCard.id === card.id);
 
     if (image) {
-      updateImage(card.id, image);
-      card.hasImage = true;
+      try {
+        if (cards[index].hasImage) {
+          updateImage(card.id, image);
+        } else {
+          createImage(card.id, image);
+        }
+        card.hasImage = true;
+      } catch (error) {
+        card.hasImage = false;
+        console.error(error);
+      }
     } else {
       card.hasImage = false;
     }
