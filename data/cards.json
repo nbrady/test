@@ -45,15 +45,6 @@
     "hasImage": false
   },
   {
-    "id": 6,
-    "name": "Android 6",
-    "cost": "6",
-    "power": "6",
-    "health": "6",
-    "effect": "",
-    "hasImage": false
-  },
-  {
     "id": 11,
     "name": "",
     "cost": "",
