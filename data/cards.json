@@ -72,14 +72,6 @@
     "effect": "On play, KO 1 card."
   },
   {
-    "id": 16,
-    "name": "Android 16",
-    "cost": "16",
-    "power": "16",
-    "health": "16",
-    "effect": ""
-  },
-  {
     "id": 17,
     "name": "Android 17",
     "cost": "17",
