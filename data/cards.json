@@ -113,5 +113,14 @@
     "health": "14",
     "effect": "",
     "hasImage": true
+  },
+  {
+    "id": 23,
+    "name": "Android 20",
+    "cost": "22",
+    "power": "22",
+    "health": "22",
+    "effect": "",
+    "hasImage": true
   }
 ]
