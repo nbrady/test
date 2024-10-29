@@ -54,15 +54,6 @@
     "hasImage": false
   },
   {
-    "id": 7,
-    "name": "Android 7",
-    "cost": "7",
-    "power": "7",
-    "health": "7",
-    "effect": "",
-    "hasImage": false
-  },
-  {
     "id": 11,
     "name": "",
     "cost": "",
