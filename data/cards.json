@@ -96,6 +96,6 @@
     "power": "11",
     "health": "11",
     "effect": "",
-    "hasImage": false
+    "hasImage": true
   }
 ]
