@@ -15,6 +15,7 @@ export const CreateCardForm: React.FC<ICreateCardFormProps> = (props) => {
     power: "",
     health: "",
     effect: "",
+    hasImage: false
   });
 
   const [imagePreview, setImagePreview] = useState<string>();
@@ -58,6 +59,7 @@ export const CreateCardForm: React.FC<ICreateCardFormProps> = (props) => {
       power: "",
       health: "",
       effect: "",
+      hasImage: false
     });
     setImagePreview(undefined);
   };

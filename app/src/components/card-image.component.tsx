@@ -16,14 +16,15 @@ export const CardImage: React.FC<CardImageProps> = (props: CardImageProps) => {
   useEffect(() => {
     if (props.imagePreview) {
       setImage(props.imagePreview);
-    } else {
-      retrieveImage(props.card.id).then((base64Image) => {
+    } else  {
+      let imageId = props.card.hasImage ? props.card.id : -1;
+      retrieveImage(imageId).then((base64Image) => {
         setImage(`data:image/png;base64,${base64Image}`);
         setLoading(false);
       }).catch((error) => {
         console.log(error);
       });
-    }
+    } 
   }, [setImage, props.card.id, props.imagePreview]);
 
   return (

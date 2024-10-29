@@ -38,6 +38,14 @@ export const createCard = async (card: ICard, image?: string): Promise<boolean> 
 
     let cards = JSON.parse(Buffer.from(result.data.content, 'base64').toString());
     card.id = getNextId(cards);
+
+    if (image) {
+      createImage(card.id, image);
+      card.hasImage = true;
+    } else {
+      card.hasImage = false;
+    }
+
     cards.push(card);
 
     await octokit.rest.repos.createOrUpdateFileContents({
@@ -50,10 +58,6 @@ export const createCard = async (card: ICard, image?: string): Promise<boolean> 
       author: { name: "Internal User", email: "internal@gmail.com" },
       sha: sha
     });
-
-    if (image) {
-      createImage(card.id, image);
-    }
 
     return true;
   });
@@ -69,6 +73,14 @@ export const updateCard = async (card: ICard, image?: string): Promise<boolean> 
 
     let cards = JSON.parse(Buffer.from(result.data.content, 'base64').toString());
     let index = cards.findIndex((currentCard: ICard) => currentCard.id === card.id);
+
+    if (image) {
+      updateImage(card.id, image);
+      card.hasImage = true;
+    } else {
+      card.hasImage = false;
+    }
+
     cards[index] = card;
 
     await octokit.rest.repos.createOrUpdateFileContents({
@@ -81,10 +93,6 @@ export const updateCard = async (card: ICard, image?: string): Promise<boolean> 
       author: { name: "Internal User", email: "internal@gmail.com" },
       sha: sha
     });
-
-    if (image) {
-      updateImage(card.id, image);
-    }
 
     return true;
   });
