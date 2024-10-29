@@ -42,7 +42,7 @@
     "power": "5",
     "health": "5",
     "effect": "",
-    "hasImage": false
+    "hasImage": true
   },
   {
     "id": 11,
