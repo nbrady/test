@@ -88,5 +88,14 @@
     "health": "10",
     "effect": "On Play, Draw 1 card.",
     "hasImage": false
+  },
+  {
+    "id": 11,
+    "name": "",
+    "cost": "",
+    "power": "",
+    "health": "",
+    "effect": "",
+    "hasImage": true
   }
 ]
