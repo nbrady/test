@@ -61,5 +61,14 @@
     "health": "",
     "effect": "",
     "hasImage": true
+  },
+  {
+    "id": 13,
+    "name": "General Ignatius",
+    "cost": "7",
+    "power": "6",
+    "health": "5",
+    "effect": "On play, KO 1 opposing character.",
+    "hasImage": true
   }
 ]
