@@ -70,5 +70,14 @@
     "health": "5",
     "effect": "On play, KO 1 opposing character.",
     "hasImage": true
+  },
+  {
+    "id": 14,
+    "name": "Android 18",
+    "cost": "3",
+    "power": "13",
+    "health": "4",
+    "effect": "",
+    "hasImage": true
   }
 ]
