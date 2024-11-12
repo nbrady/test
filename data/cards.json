@@ -79,5 +79,14 @@
     "health": "4",
     "effect": "",
     "hasImage": true
+  },
+  {
+    "id": 15,
+    "name": "Android 10",
+    "cost": "2",
+    "power": "2",
+    "health": "2",
+    "effect": "",
+    "hasImage": true
   }
 ]
