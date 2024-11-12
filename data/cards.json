@@ -97,5 +97,14 @@
     "health": "12",
     "effect": "",
     "hasImage": true
+  },
+  {
+    "id": 12,
+    "name": "",
+    "cost": "",
+    "power": "",
+    "health": "",
+    "effect": "",
+    "hasImage": true
   }
 ]
