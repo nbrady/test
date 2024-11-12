@@ -41,6 +41,7 @@ export const createCard = async (card: ICard, image?: string): Promise<boolean> 
 
     if (image) {
       try {
+        console.log(image);
         createImage(card.id, image);
         card.hasImage = true;
       } catch (error) {

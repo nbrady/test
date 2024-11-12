@@ -157,6 +157,7 @@ export const CreateCardForm: React.FC<ICreateCardFormProps> = (props) => {
                   className="form-control"
                   ref={imageRef}
                   type="file"
+                  accept=".png" 
                   onChange={setImage}
                 />
               </div>
