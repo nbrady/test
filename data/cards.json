@@ -88,5 +88,14 @@
     "health": "2",
     "effect": "",
     "hasImage": true
+  },
+  {
+    "id": 16,
+    "name": "2332",
+    "cost": "12",
+    "power": "2",
+    "health": "2",
+    "effect": "",
+    "hasImage": true
   }
 ]
