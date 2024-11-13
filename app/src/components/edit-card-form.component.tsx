@@ -45,7 +45,7 @@ export const EditCardForm: React.FC<IEditCardFormProps> = (props) => {
   const onSave = () => {
     updateCard(card, imagePreview)
       .then(() => {
-        setSuccessMessage("Card has updated successfully.");
+        setSuccessMessage("Card was updated successfully.");
         setErrorMessage(undefined);
       })
       .catch((error) => {
@@ -58,7 +58,7 @@ export const EditCardForm: React.FC<IEditCardFormProps> = (props) => {
   const onDelete = () => {
     deleteCard(card)
       .then(() => {
-        setSuccessMessage("Card has deleted successfully.");
+        setSuccessMessage("Card was deleted successfully.");
         setErrorMessage(undefined);
       })
       .catch((error) => {
