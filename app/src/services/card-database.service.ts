@@ -15,7 +15,12 @@ export const initializeCardDB = (password: string) => {
 export const getNextId = (cards: ICard[]): number => {
   // Auto-increment the ID
   const sorted = [...cards].sort((card1, card2) => {return card1.id > card2.id ? -1 : 1;});
-  return sorted[0].id + 1;;
+
+  if (sorted.length > 0) {
+    return sorted[0].id + 1;;
+  } else {
+    return 0;
+  }
 };
 
 export const retrieveCards = async (): Promise<ICard[]> => {
