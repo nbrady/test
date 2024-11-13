@@ -15,7 +15,7 @@
     "power": "3",
     "health": "1",
     "effect": "On Play, deal 1 damage to 1 other character.",
-    "hasImage": false
+    "hasImage": true
   },
   {
     "id": 2,
