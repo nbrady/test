@@ -1,92 +1,38 @@
 [
   {
-    "id": 1,
-    "name": "Android 1",
+    "id": 0,
+    "name": "Darius Grimgore",
     "cost": "1",
     "power": "1",
     "health": "1",
-    "effect": "",
-    "hasImage": false
+    "effect": "On Play, draw 1 card.",
+    "hasImage": true
+  },
+  {
+    "id": 1,
+    "name": "Zayne Hawthorne",
+    "cost": "2",
+    "power": "3",
+    "health": "1",
+    "effect": "On Play, deal 1 damage to another character.",
+    "hasImage": true
   },
   {
     "id": 2,
-    "name": "Android 2",
-    "cost": "2",
+    "name": "Lady Amarillith",
+    "cost": "3",
     "power": "2",
-    "health": "2",
-    "effect": "",
-    "hasImage": false
+    "health": "4",
+    "effect": "On Play, heal 2 damage from each friendly character.",
+    "hasImage": true
   },
   {
     "id": 3,
-    "name": "Android 3",
-    "cost": "3",
-    "power": "3",
-    "health": "3",
-    "effect": "",
-    "hasImage": false
-  },
-  {
-    "id": 4,
-    "name": "Android 4",
-    "cost": "4",
-    "power": "4",
-    "health": "4",
-    "effect": "",
-    "hasImage": false
-  },
-  {
-    "id": 5,
-    "name": "Android 5",
-    "cost": "5",
-    "power": "5",
-    "health": "5",
-    "effect": "",
-    "hasImage": false
-  },
-  {
-    "id": 6,
-    "name": "Android 6",
+    "name": "General Ignatius",
     "cost": "6",
-    "power": "6",
-    "health": "6",
-    "effect": "",
-    "hasImage": false
-  },
-  {
-    "id": 7,
-    "name": "Android 7",
-    "cost": "7",
     "power": "7",
-    "health": "7",
-    "effect": "",
-    "hasImage": false
-  },
-  {
-    "id": 8,
-    "name": "Android 8",
-    "cost": "8",
-    "power": "8",
-    "health": "8",
-    "effect": "",
-    "hasImage": false
-  },
-  {
-    "id": 9,
-    "name": "Android 9",
-    "cost": "9",
-    "power": "9",
-    "health": "9",
-    "effect": "",
-    "hasImage": false
-  },
-  {
-    "id": 10,
-    "name": "Android 10",
-    "cost": "10",
-    "power": "10",
-    "health": "10",
-    "effect": "On Play, Draw 1 card.",
-    "hasImage": false
+    "health": "5",
+    "effect": "On Play, destroy 1 other character.",
+    "hasImage": true
   }
 ]
