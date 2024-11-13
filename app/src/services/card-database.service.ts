@@ -98,8 +98,6 @@ export const updateCard = async (card: ICard, image?: string): Promise<boolean> 
         card.hasImage = false;
         console.error(error);
       }
-    } else {
-      card.hasImage = false;
     }
 
     cards[index] = card;
