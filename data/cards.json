@@ -25,5 +25,14 @@
     "health": "4",
     "effect": "On Play, heal 2 damage from each friendly character.",
     "hasImage": true
+  },
+  {
+    "id": 3,
+    "name": "General Ignatius",
+    "cost": "6",
+    "power": "7",
+    "health": "5",
+    "effect": "On Play, destroy 1 other character.",
+    "hasImage": true
   }
 ]
