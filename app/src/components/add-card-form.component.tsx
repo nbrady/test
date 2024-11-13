@@ -7,6 +7,9 @@ interface ICreateCardFormProps {
   onBack: () => void;
 }
 
+const ALLOWED_IMAGE_TYPES = ['.jpg', '.jpeg', '.png'];
+const MAX_IMAGE_SIZE_MB = 1;
+
 export const CreateCardForm: React.FC<ICreateCardFormProps> = (props) => {
   const [card, setCard] = useState<ICard>({
     id: -1,
@@ -23,11 +26,22 @@ export const CreateCardForm: React.FC<ICreateCardFormProps> = (props) => {
   const [imagePreview, setImagePreview] = useState<string>();
   const [successMessage, setSuccessMessage] = useState<string>();
   const [errorMessage, setErrorMessage] = useState<string>();
+  const [isValid, setIsValid] = useState<boolean>(true);
 
   const setImage = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files) {
-      let base64Image = (await toBase64(event.target.files)) as string;
-      setImagePreview(base64Image);
+    if (event.target.files && event.target.files.length) {
+      if (!ALLOWED_IMAGE_TYPES.includes(`${event.target.files[0].type.replace('image/', '.')}`)) {
+        setErrorMessage(`Invalid image file type.`);
+        setIsValid(false);
+      } else if (event.target.files[0].size > (MAX_IMAGE_SIZE_MB * 1024 * 1024)) {
+        setErrorMessage(`Image must be under ${MAX_IMAGE_SIZE_MB} MB`);
+        setIsValid(false);
+      } else {
+        setErrorMessage(undefined);
+        setIsValid(true);
+        let base64Image = (await toBase64(event.target.files)) as string;
+        setImagePreview(base64Image);
+      }
     }
   };
 
@@ -151,13 +165,13 @@ export const CreateCardForm: React.FC<ICreateCardFormProps> = (props) => {
               </div>
 
               <div className="form-group col">
-                <label htmlFor="card-image">Card Image: </label>
+                <label htmlFor="card-image">Card Image: ({ALLOWED_IMAGE_TYPES.join(', ')})</label>
                 <input
                   id="card-image"
                   className="form-control"
                   ref={imageRef}
                   type="file"
-                  accept=".png" 
+                  accept={ALLOWED_IMAGE_TYPES.join(',')}
                   onChange={setImage}
                 />
               </div>
@@ -167,6 +181,7 @@ export const CreateCardForm: React.FC<ICreateCardFormProps> = (props) => {
               type="button"
               className="btn btn-primary m-1"
               onClick={onSave}
+              disabled={!isValid}
             >
               Save
             </button>

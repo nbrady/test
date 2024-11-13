@@ -88,32 +88,5 @@
     "health": "10",
     "effect": "On Play, Draw 1 card.",
     "hasImage": false
-  },
-  {
-    "id": 11,
-    "name": "Android 10",
-    "cost": "10",
-    "power": "10",
-    "health": "12",
-    "effect": "",
-    "hasImage": true
-  },
-  {
-    "id": 12,
-    "name": "",
-    "cost": "",
-    "power": "",
-    "health": "",
-    "effect": "",
-    "hasImage": true
-  },
-  {
-    "id": 13,
-    "name": "Android 18",
-    "cost": "",
-    "power": "",
-    "health": "",
-    "effect": "",
-    "hasImage": true
   }
 ]

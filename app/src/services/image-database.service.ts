@@ -1,5 +1,9 @@
 import { Octokit } from "octokit";
 
+// TODO: Allow .jpeg and .jpg
+export const ALLOWED_IMAGE_TYPES = ['.png'];
+export const MAX_IMAGE_SIZE_MB = 1;
+
 const OWNER = "nbrady";
 const REPO = "test";
 const IMAGE_PATH = `images`;
