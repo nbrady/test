@@ -1,14 +1,5 @@
 [
   {
-    "id": 11,
-    "name": "General Ignatius",
-    "cost": "7",
-    "power": "6",
-    "health": "5",
-    "effect": "On Play, destroy 1 enemy character.",
-    "hasImage": true
-  },
-  {
     "id": 13,
     "name": "Darius Grimgore",
     "cost": "1",
