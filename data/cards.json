@@ -106,5 +106,14 @@
     "health": "4",
     "effect": "On Play, heal each friendly character for 2.",
     "hasImage": true
+  },
+  {
+    "id": 13,
+    "name": "Darius Grimgore",
+    "cost": "1",
+    "power": "1",
+    "health": "1",
+    "effect": "On play, draw 1 card.",
+    "hasImage": true
   }
 ]
