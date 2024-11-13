@@ -7,5 +7,14 @@
     "health": "1",
     "effect": "On Play, draw 1 card.",
     "hasImage": true
+  },
+  {
+    "id": 1,
+    "name": "Zayne Hawthorne",
+    "cost": "2",
+    "power": "3",
+    "health": "1",
+    "effect": "On Play, deal 1 damage to another character.",
+    "hasImage": true
   }
 ]
