@@ -99,15 +99,6 @@
     "hasImage": true
   },
   {
-    "id": 12,
-    "name": "Lady Amarillith",
-    "cost": "3",
-    "power": "1",
-    "health": "4",
-    "effect": "On Play, heal each friendly character for 2.",
-    "hasImage": true
-  },
-  {
     "id": 13,
     "name": "Darius Grimgore",
     "cost": "1",
