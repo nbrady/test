@@ -1,14 +1,5 @@
 [
   {
-    "id": 13,
-    "name": "Darius Grimgore",
-    "cost": "1",
-    "power": "1",
-    "health": "1",
-    "effect": "On Play, draw 1 card.",
-    "hasImage": true
-  },
-  {
     "id": 14,
     "name": "Lady Amarillith",
     "cost": "3",
