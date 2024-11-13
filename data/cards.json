@@ -16,5 +16,14 @@
     "health": "1",
     "effect": "On Play, deal 1 damage to another character.",
     "hasImage": true
+  },
+  {
+    "id": 2,
+    "name": "Lady Amarillith",
+    "cost": "3",
+    "power": "2",
+    "health": "4",
+    "effect": "On Play, heal 2 damage from each friendly character.",
+    "hasImage": true
   }
 ]
