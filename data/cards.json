@@ -1,14 +1,5 @@
 [
   {
-    "id": 4,
-    "name": "Android 4",
-    "cost": "4",
-    "power": "4",
-    "health": "4",
-    "effect": "",
-    "hasImage": false
-  },
-  {
     "id": 5,
     "name": "Android 5",
     "cost": "5",
