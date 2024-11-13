@@ -104,8 +104,8 @@
     "cost": "1",
     "power": "1",
     "health": "1",
-    "effect": "On play, draw 1 card.",
-    "hasImage": true
+    "effect": "On Play, draw 1 card.",
+    "hasImage": false
   },
   {
     "id": 14,
