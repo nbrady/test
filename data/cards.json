@@ -115,5 +115,14 @@
     "health": "1",
     "effect": "On play, draw 1 card.",
     "hasImage": true
+  },
+  {
+    "id": 14,
+    "name": "Lady Amarillith",
+    "cost": "3",
+    "power": "1",
+    "health": "4",
+    "effect": "On Play, heal on friendly characters for 2.",
+    "hasImage": true
   }
 ]
