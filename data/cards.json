@@ -14,8 +14,8 @@
     "cost": "2",
     "power": "3",
     "health": "1",
-    "effect": "On Play, deal 1 damage to another character.",
-    "hasImage": true
+    "effect": "On Play, deal 1 damage to 1 other character.",
+    "hasImage": false
   },
   {
     "id": 2,
