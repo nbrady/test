@@ -34,5 +34,14 @@
     "health": "5",
     "effect": "On Play, destroy 1 other character.",
     "hasImage": true
+  },
+  {
+    "id": 4,
+    "name": "Android 18",
+    "cost": "2",
+    "power": "2",
+    "health": "7",
+    "effect": "Draw 1 card",
+    "hasImage": true
   }
 ]
